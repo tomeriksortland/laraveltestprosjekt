@@ -16,10 +16,10 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">Home <span class="sr-only">Home</span></a>
+              <a class="nav-link" href="{{ route('index') }}">Home</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Shoppinglist</a>
+              <a class="nav-link" href="{{ route('shoppinglist.index') }}">Shoppinglist</a>
             </li>
           </ul>
         </div>

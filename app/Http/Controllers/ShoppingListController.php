@@ -37,7 +37,13 @@ class ShoppingListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shoppinglist = new ShoppingList();
+        $shoppinglist->product = $request->product;
+        $shoppinglist->amount = $request->amount;
+        
+        $shoppinglist->save();
+
+        return redirect(route('shoppinglist.index'));
     }
 
     /**

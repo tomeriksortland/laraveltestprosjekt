@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShoppingListController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::resource('/', HomeController::class);
 
 Route::resource('/shoppinglist', ShoppingListController::class);
 // Route::resource('/brukere', UserController::class);
