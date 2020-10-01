@@ -16,12 +16,15 @@
           
             <div class="collapse navbar-collapse" id="navbarColor01">
               <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('index') }}">Hjem</a>
+                </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('index') }}">Home</a>
+                <a class="nav-link" href="{{ route('shoppinglist.index') }}">Handleliste</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('shoppinglist.index') }}">Shoppinglist</a>
-                </li>
+                  <a class="nav-link" href="{{ route('wishlist.index') }}">Ønskeliste</a>
+                  </li>
               </ul>
             </div>
           </nav>

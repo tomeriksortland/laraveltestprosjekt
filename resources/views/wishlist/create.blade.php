@@ -20,10 +20,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('index') }}">Hjem</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                 <a class="nav-link" href="{{ route('shoppinglist.index') }}">Handleliste</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="{{ route('wishlist.index') }}">Ønskeliste</a>
                   </li>
               </ul>
@@ -34,29 +34,20 @@
 <br>
 <br>
 
-    <form method="POST" action="/shoppinglist">
+    <form method="POST" action="/wishlist">
         @csrf
         
           <div class="form-group">
-            <label for="product">Produkt</label>
-            <input type="text" class="form-control" id="product" name="product" placeholder="Produkt">
+            <label for="wish">Hva er ønsket?</label>
+            <input type="text" class="form-control" id="wish" name="wish" placeholder="Ønske">
           </div>
 
           <div class="form-group">
-            <label for="amount">Hvor mange?</label>
-            <select class="form-control" name="amount" id="amount">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-            </select>
+            <label for="name">Hvem ønsker seg?</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Navn">
           </div>
+
+          
           <div class="field is-grouped">
             <div class="control">
                 <button type="submit" class="btn btn-success btn-lg">Legg til!</button>

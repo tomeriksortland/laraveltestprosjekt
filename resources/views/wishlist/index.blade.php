@@ -18,10 +18,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('index') }}">Hjem</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('shoppinglist.index') }}">Handleliste</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="{{ route('wishlist.index') }}">Ønskeliste</a>
             </li>
           </ul>
@@ -39,18 +39,19 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Produkt</th>
-          <th scope="col">Hvor mange?</th>
+          <th scope="col">Hva er ønsket?</th>
+          <th scope="col">Hvem ønsker seg?</th>
+          <th scope="col">Dato når dette ble lagt til.</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($shoppinglist as $shoppinglist)
+        @foreach ($wishlist as $wishlist)
         <tr class="table-active">
-          <th scope="row">{{ $shoppinglist->product }}</th>
-          <td>{{ $shoppinglist->amount }}</td>
+          <th scope="row">HeipåDeg</th>
+          <td>Hei</td>
           <td>
-            <a href="{{ route('shoppinglist.edit', $shoppinglist) }}" type="button" class="btn btn-info">Endre</a>
-          <form class="d-inline" action="{{ route('shoppinglist.destroy', $shoppinglist) }}" method="POST">
+            <a href="{{ route('wishlist.edit', $wishlist) }}" type="button" class="btn btn-info">Endre</a>
+          <form class="d-inline" action="{{ route('wishlist.destroy', $wishlist) }}" method="POST">
             @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger">Slett!</button>
@@ -60,7 +61,7 @@
         @endforeach
       </tbody>
     </table> 
-    <a href="{{ route('shoppinglist.create') }}" class="btn btn-success">
+    <a href="{{ route('wishlist.create') }}" class="btn btn-success">
 Legg til et produkt
     </a>
   </div>
@@ -69,8 +70,3 @@ Legg til et produkt
   
 </body>
 </html>
-
-
-
-    
-
