@@ -45,7 +45,7 @@
         <tr class="table-active">
           <th scope="row">{{ $shoppinglist->product }}</th>
           <td>{{ $shoppinglist->amount }}</td>
-          <td><button type="button" class="btn btn-info">Endre</button> <button type="button" class="btn btn-danger">Slett</button></td>
+          <td><a href="{{ route('shoppinglist.edit', $shoppinglist) }}" type="button" class="btn btn-info">Endre</a> <a href="{{ route('shoppinglist.destroy', $shoppinglist) }}" type="button" class="btn btn-danger">Slett</a></td>
         </tr>
         @endforeach
       </tbody>
