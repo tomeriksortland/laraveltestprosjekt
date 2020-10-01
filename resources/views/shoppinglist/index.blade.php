@@ -45,7 +45,14 @@
         <tr class="table-active">
           <th scope="row">{{ $shoppinglist->product }}</th>
           <td>{{ $shoppinglist->amount }}</td>
-          <td><a href="{{ route('shoppinglist.edit', $shoppinglist) }}" type="button" class="btn btn-info">Endre</a> <a href="{{ route('shoppinglist.destroy', $shoppinglist) }}" type="button" class="btn btn-danger">Slett</a></td>
+          <td>
+            <a href="{{ route('shoppinglist.edit', $shoppinglist) }}" type="button" class="btn btn-info">Endre</a>
+          <form class="d-inline" action="{{ route('shoppinglist.destroy', $shoppinglist) }}" method="POST">
+            @csrf
+            @method('delete')
+            <input class="btn btn-danger" type="submit">
+          </form>
+          </td>
         </tr>
         @endforeach
       </tbody>

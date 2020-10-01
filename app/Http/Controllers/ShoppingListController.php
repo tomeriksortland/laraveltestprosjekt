@@ -23,6 +23,12 @@ class ShoppingListController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                
+            ]
+        );
+
         $shoppinglist = new ShoppingList();
         $shoppinglist->product = $request->product;
         $shoppinglist->amount = $request->amount;
@@ -48,17 +54,25 @@ class ShoppingListController extends Controller
     
     public function update(Request $request, ShoppingList $shoppinglist)
     {
-        // $shoppinglist->product = $request->product;
-        // $shoppinglist->amount = $request->amount;
+        $request->validate(
+            [
+                'product' => 'required',
+                'amount' => 'required'
+            ]
+        );
 
-        // $shoppinglist->update($shoppinglist);
+        $shoppinglist->product = $request->product;
+        $shoppinglist->amount = $request->amount;
 
-        
+        $shoppinglist->update();
+
+        return redirect(route('shoppinglist.index'));
     }
 
     
     public function destroy(ShoppingList $shoppinglist)
     {
-        //
+        $shoppinglist->delete();
+        return redirect(route('shoppinglist.index'));
     }
 }
