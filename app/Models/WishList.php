@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,10 +10,15 @@ class WishList extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['wish', 'name'];
+    protected $fillable = ['wish', 'name', 'added', 'bought'];
 
-    public function getCurrentDate($wish)
+    protected $casts = [
+        'added' => 'datetime:Y-m-d',
+    ];
+
+    protected function serializeDate(DateTimeInterface $date)
     {
-        return $wish->format('d-M-Y');
+        return $date->format('Y-m-d');
     }
+
 }

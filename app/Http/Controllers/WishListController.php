@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\WishList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Foreach_;
 
 class WishListController extends Controller
 {
@@ -24,39 +26,44 @@ class WishListController extends Controller
     
     public function store(Request $request)
     {
-        $wish = new WishList;
-        $wish->wish = $request->wish;
-        $wish->name = $request->name;
-        $wish->date_added = getCurrentDate();
+        $wishlist = new WishList();
+        $wishlist->wish = $request->wish;
+        $wishlist->name = $request->name;
+        $wishlist->added = Carbon::now();
+        
+        $wishlist->save();
 
-        return $wish;
-
-        $wish->create();
-
-        return redirect(route('shoppinglist.index'));
+        return redirect(route('wishlist.index'));
     }
 
     
-    public function show(WishList $wishList)
+    public function show(WishList $wishlist)
     {
         //
     }
 
     
-    public function edit(WishList $wishList)
+    public function edit(WishList $wishlist)
     {
-        //
+        return view('wishlist.edit', ['wishlist' => $wishlist]);
     }
 
     
-    public function update(Request $request, WishList $wishList)
+    public function update(Request $request, WishList $wishlist)
     {
-        //
+        $wishlist->wish = $request->wish;
+        $wishlist->name = $request->name;
+        
+        $wishlist->update();
+
+        return redirect(route('wishlist.index'));
     }
 
     
-    public function destroy(WishList $wishList)
+    public function destroy(WishList $wishlist)
     {
-        //
+        $wishlist->delete();
+
+        return redirect(route('wishlist.index'));
     }
 }

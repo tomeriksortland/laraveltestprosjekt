@@ -17,8 +17,7 @@ class CreateWishListsTable extends Migration
             $table->id('id');
             $table->string('wish');
             $table->string('name');
-            $table->timestamp('date_added');
-            $table->timestamp('bought')->nullable();
+            $table->boolean('added')->default(false);
             $table->timestamps();
         });
     }

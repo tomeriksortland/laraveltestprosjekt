@@ -41,14 +41,15 @@
         <tr>
           <th scope="col">Hva er ønsket?</th>
           <th scope="col">Hvem ønsker seg?</th>
-          <th scope="col">Dato når dette ble lagt til.</th>
+          <th scope="col">Når ble ønsket lagt til?</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($wishlist as $wishlist)
         <tr class="table-active">
-          <th scope="row">HeipåDeg</th>
-          <td>Hei</td>
+          <th scope="row">{{ $wishlist->wish }}</th>
+          <td>{{ $wishlist->name }}</td>
+          <td>{{ $wishlist->added }}</td>
           <td>
             <a href="{{ route('wishlist.edit', $wishlist) }}" type="button" class="btn btn-info">Endre</a>
           <form class="d-inline" action="{{ route('wishlist.destroy', $wishlist) }}" method="POST">
