@@ -12,9 +12,9 @@ class WishListController extends Controller
     
     public function index()
     {
-        $wishlist = WishList::get();
+        $wishlists = WishList::get();
 
-        return view('wishlist.index', ['wishlist' => $wishlist]);
+        return view('wishlist.index', compact('wishlists'));
     }
 
     
@@ -29,7 +29,6 @@ class WishListController extends Controller
         $wishlist = new WishList();
         $wishlist->wish = $request->wish;
         $wishlist->name = $request->name;
-        $wishlist->added = Carbon::now();
         
         $wishlist->save();
 

@@ -45,14 +45,14 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($wishlist as $wishlist)
+        @foreach ($wishlists as $wishlist)
         <tr class="table-active">
           <th scope="row">{{ $wishlist->wish }}</th>
           <td>{{ $wishlist->name }}</td>
-          <td>{{ $wishlist->added }}</td>
+          <td>{{ $wishlist->created_at }}</td>
           <td>
-            <a href="{{ route('wishlist.edit', $wishlist) }}" type="button" class="btn btn-info">Endre</a>
-          <form class="d-inline" action="{{ route('wishlist.destroy', $wishlist) }}" method="POST">
+            <a href="{{ route('wishlist.edit', $wishlist->id) }}" type="button" class="btn btn-info">Endre</a>
+          <form class="d-inline" action="{{ route('wishlist.destroy', $wishlist->id) }}" method="POST">
             @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger">Slett!</button>
